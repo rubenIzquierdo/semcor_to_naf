@@ -174,5 +174,6 @@ for the API in the folder `apidocs`. As said before the already generated docume
 #Contact#
 * Ruben Izquierdo
 * Vrije University of Amsterdam
-* ruben.izquierdobevia@vu.nl
+* ruben.izquierdobevia@vu.nl  rubensanvi@gmail.com
+* http://rubenizquierdobevia.com/
 

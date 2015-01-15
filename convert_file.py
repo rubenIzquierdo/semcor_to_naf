@@ -16,8 +16,8 @@ import sys
 
 if sys.stdin.isatty():
     print>>sys.stderr,'Script to convert a SemCor file to NAF format. Usage:'
-    print>>sys.stderr,'  cat semcor.file |',sys.argv[0],' wnver (1.6) > naf.file'
+    print>>sys.stderr,'  cat semcor.file |',sys.argv[0],' wnver (1.6) corpus_id (SemCor) > naf.file'
     sys.exit(-1)
 
-semcor_file_to_naf(sys.stdin,sys.stdout,sys.argv[1])
+semcor_file_to_naf(sys.stdin,sys.stdout,sys.argv[1],corpus_id = sys.argv[2])
   

@@ -17,6 +17,7 @@ if __name__ == '__main__':
     my_arg_parser.add_argument('-i',help='Input folder',dest='in_folder', required=True)
     my_arg_parser.add_argument('-o',help='Output folder',dest='out_folder', required=True)
     my_arg_parser.add_argument('-wn_ver',help='WordNet version of sense annotated in the corpus.', dest='wn_ver', required=True)
+    my_arg_parser.add_argument('-corpus', help='Corpus identifier', dest='corpus_id',required=True)
     
     
     arguments = my_arg_parser.parse_args()
@@ -45,7 +46,7 @@ if __name__ == '__main__':
         for infile in glob.glob(subfolder+'/tagfiles/*'):
             fields = infile.split('/')
             outfile = subout_folder+'/'+fields[-1]+'.naf'
-            semcor_file_to_naf(infile,outfile, arguments.wn_ver)
+            semcor_file_to_naf(infile,outfile, arguments.wn_ver,corpus_id = arguments.corpus_id)
             n += 1
         print '\tNumber files converted to NAF:',n
     print

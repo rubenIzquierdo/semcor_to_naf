@@ -29,7 +29,7 @@ def get_fields(this_line):
             ret[pair[0]] = pair[1]
     return ret
         
-def semcor_file_to_naf(input_file, output_file,wn_ver):
+def semcor_file_to_naf(input_file, output_file,wn_ver,corpus_id='corpus_id'):
     """
     Takes an input file in SemCor format and converts it to NAF in outfile.
     
@@ -112,7 +112,6 @@ def semcor_file_to_naf(input_file, output_file,wn_ver):
                         ext_ref2.set_confidence('1.0')
                         ext_ref2.set_reference(lexsn)
                         ext_ref2.set_resource('WordNet-'+str(wn_ver))
-                        ext_ref.set_reftype('sense_number')
                         ext_ref2.set_reftype('lexical_key')
                         new_term.add_external_reference(ext_ref2) 
 
@@ -121,8 +120,8 @@ def semcor_file_to_naf(input_file, output_file,wn_ver):
                 if this_id is not None:
                     ext_ref = CexternalReference()
                     ext_ref.set_reference(this_id)
-                    ext_ref.set_resource('original_corpus_id')
-                    ext_ref.set_reftype('id')
+                    ext_ref.set_resource(corpus_id)
+                    ext_ref.set_reftype('original_id')
                     new_term.add_external_reference(ext_ref)
                     
                 out_obj.add_term(new_term)
